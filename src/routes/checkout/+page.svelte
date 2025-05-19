@@ -232,7 +232,7 @@
                     </div>
                   </div>
                   <p class="text-lg font-semibold text-slate-600">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ${item.amount}
                   </p>
                 </div>
               {/each}
