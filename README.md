@@ -1,38 +1,45 @@
-# sv
+# REQUIREMENT DOCUMENT FOR ECOMMERCE X SOCIAL MEDIA APPLICATION
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Frontend Requirements:
 
-## Creating a project
+*   Sign in Page (Contains only google oauth)
+*   Browse Page
+*   Update User Profile Page
+*   Upload Post Page
+*   Checkout Page
+*   View Orders Page
 
-If you're seeing this, you've probably already done this step. Congrats!
+> PLEASE BEFORE WE START WORK ON THIS LET’S HAVE A SESSION/CALL TOGETHER TO CONCLUDE REQUIREMENTS
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Sign In Page:
 
-# create a new project in my-app
-npx sv create my-app
-```
+*   No sign up page, only sign in page
+*   If `active` is equal to `false` show upload profile page which involves `phoneNumber` and address details (`streetName`, `state`, `country`) after this take them to the dashboard
+*   Else take them directly to the dashboard
 
-## Developing
+## Update User Profile Page:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+*   Page collects the following details: `phoneNumber`, and address details (`streetName`, `state`, `country`)
 
-```bash
-npm run dev
+## Upload Post Page:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+*   Upload video
+*   Add Caption/Description
+*   Add Product to Post (can add more than one product for a specific post)
 
-## Building
+## Browse Page:
 
-To create a production version of your app:
+*   Post in a 9:16 aspect ratio box (video)
+*   Post description
+*   Under the post description is product name, price and add to cart button for each product
+*   Like feature (to be added later on) **NOT TO BE INCLUDED IN MVP**
 
-```bash
-npm run build
-```
+## Cart Page:
 
-You can preview the production build with `npm run preview`.
+## Checkout Page:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+*   On checkout page user should be able to buy product using payment gateway
+
+## View Orders Page:
+
+*   View order details including `orderId`, `orderDate`, `orderTime`, and `customerName`
