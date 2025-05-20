@@ -1,21 +1,34 @@
 <script lang="ts">
     import IconShoppingCart from "@tabler/icons-svelte/icons/shopping-cart";
     import { onMount } from "svelte";
-    import { getProductById, type Product } from "$lib";
+    import { type Product } from "$lib";
+    import { initiateCheckout } from "$lib/utils/fetch";
+    import { getUserCart } from "$lib/utils/fetch";
 
     let carts: number[] = $state(
         JSON.parse(localStorage.getItem("carts") || "[]"),
     );
     let products: Product[] = $state([]);
     let isVisible: boolean = $state(false);
+    let totalAmount: number = $state(0.00);
 
     $inspect(products);
 
     onMount(async function () {
-        products = await Promise.all(
-            carts.map((cart) => getProductById(cart.toString())),
-        );
+        var cart = await getUserCart();
+        products = cart["products"]
+        totalAmount = cart["totalAmount"];
+        
+        // products = await Promise.all(
+        //     carts.map((cart) => getProductById(cart.toString())),
+        // );
     });
+
+    async function checkoutCart () {
+        var initiate_url = (await initiateCheckout())["checkout_url"];
+        console.log(initiate_url)
+        window.location.href = initiate_url;
+    }
 </script>
 
 <button class="transform hover:scale-120 transition relative" onclick={() => {isVisible = !isVisible}}>
@@ -34,7 +47,14 @@
                     <span class="font-semibold">{product.amount}</span>
                 </li>
             {/each}
+                <button type="button" class="btn w-full mb-8"
+                    onclick={() => {
+                        checkoutCart();
+                    }}
+                >
+        Checkout</button>
         </ul>
+        <h2 class="text-lg font-semibold mb-2">Total Amount: {totalAmount}</h2>
     {:else}
         <p>No items in cart</p>
     {/if}

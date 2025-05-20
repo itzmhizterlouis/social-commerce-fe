@@ -149,3 +149,36 @@ export const getPosts = async (pageSize: number) => {
         throw error;
     }
 }
+
+export const initiateCheckout = async () => {
+    try {
+        const response = await axios.get(`/carts/initiate-checkout`, {
+        });
+        return JSON.parse(response.data);
+    } catch (error) {
+        console.error("Error initiating cart checkout", error);
+        throw error;
+    }
+}
+
+export const getUserCart = async () => {
+    try {
+        const response = await axios.get(`/carts`, {
+        });
+        return JSON.parse(response.data);
+    } catch (error) {
+        console.error("Error getting user cart", error);
+        throw error;
+    }
+}
+
+export const addItemToCart = async (productId: number) => {
+    try {
+        const response = await axios.post(`/carts/${productId}`, {
+        });
+        return JSON.parse(response.data);
+    } catch (error) {
+        console.error("Error adding product to cart", error);
+        throw error;
+    }
+}

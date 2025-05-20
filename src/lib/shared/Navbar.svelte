@@ -24,10 +24,10 @@
 
                 <ul class="flex gap-6">
                     <li class="w-full">
-                        <a class="nav-link" href="/browse">Browse</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="w-full">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/browse">Browse</a>
                     </li>
                     <li class="w-full">
                         <a class="nav-link" href="/post">Post</a>

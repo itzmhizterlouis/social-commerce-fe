@@ -12,10 +12,12 @@
   let chosenProducts: string[] = $state([]);
 
   let isLoading = $state(false);
+  let productLoading = $state(true);
 
   onMount(async () => {
     const response = await getProducts();
     availableProducts = response;
+    productLoading = false;
   });
 
   const validate = () => {
@@ -51,6 +53,10 @@
     console.log(response);
 
     goto("/browse");
+  }
+
+  async function goToProducts() {
+    goto("/product");
   }
 </script>
 
@@ -134,7 +140,9 @@
       </h2>
       <div class="space-y-4">
         <!-- Placeholder for product 1 -->
-        {#if availableProducts && availableProducts.length > 0}
+        {#if productLoading}
+          <p class="text-center text-slate-500 animate-pulse">loading user products...</p>
+        {:else if availableProducts && availableProducts.length > 0}
           {#each availableProducts as product}
             <div
               class="flex items-center justify-between p-3 bg-slate-100 rounded-md border-1 border-slate-400 hover:bg-slate-200 transition"
@@ -159,6 +167,9 @@
         <button
           type="button"
           class="w-full mt-2 flex items-center justify-center px-4 py-2 border border-dashed border-slate-300 rounded-md text-sm font-medium text-blue-600 hover:text-blue-500 hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition"
+          onclick={() => {
+            goToProducts();
+          }}
         >
           <svg
             class="w-5 h-5 mr-2"

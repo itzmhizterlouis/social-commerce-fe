@@ -119,7 +119,7 @@
           </div>
         </div>
 
-        <div>
+        <!-- <div>
           <label class="block text-sm font-medium text-slate-700">
             Product Images
           </label>
@@ -151,7 +151,7 @@
               <p class="text-xs text-slate-500">PNG, JPG, GIF up to 10MB</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="pt-2">
           <button class="btn w-full" disabled={error.exists || isLoading} {onclick}> 
