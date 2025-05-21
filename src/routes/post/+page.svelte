@@ -98,7 +98,7 @@
                 name="video-file-upload"
                 type="file"
                 class="sr-only"
-                accept="image/*"
+                accept="video/*"
                 bind:files={photoFiles}
               />
             </label>

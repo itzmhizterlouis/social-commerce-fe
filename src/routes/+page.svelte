@@ -1,5 +1,10 @@
 <script>
-  // no script needed for this simple landing page
+  import { onMount } from 'svelte'; 
+  import { goto } from "$app/navigation";
+
+  onMount(() => {
+    goto('/browse');
+  });
 </script>
 
 <div class="min-h-screen bg-gray-100 flex flex-col justify-center items-center">

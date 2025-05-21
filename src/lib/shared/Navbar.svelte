@@ -8,6 +8,7 @@
     let isVisible = $state(false);
 
     onMount(async function () {
+        localStorage.setItem("token", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdHptaGl6dGVybG91aXNAZ21haWwuY29tIiwiaWF0IjoxNzQ3Nzg5MjE1LCJleHAiOjIzMzQ3Nzg5MjE1fQ.gOcmt3n6ZcZOIDP3WESGHDDG46B9riwjgRd-SCyOmjY");
         user = await getUser();
     });
 </script>
@@ -52,16 +53,16 @@
                         />
                     </button>
                     <Dropdown />
-                {:else}
-                    <button class="btn"> Sign In </button>
+                <!-- {:else}
+                    <button class="btn"> Sign In </button> -->
                 {/if}
                 <button
                     onclick={() => {
                         isVisible = !isVisible;
                     }}
-                    class="md:hidden"
+                    class="md:hidden cursor-pointer"
                 >
-                    <IconMenu2 class="size-10 stroke-blue-700" />
+                    <IconMenu2 class="size-10 stroke-blue-700 group-hover:stroke-blue-900 transition" />
                 </button>
             </div>
         </div>

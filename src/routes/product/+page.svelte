@@ -27,7 +27,8 @@
     isLoading = true;
     const response = await createProduct(productName, productPrice)  
     console.log(response);
-    goto("/")
+    isLoading = false;
+    goto("/post");
   }
 </script>
 
